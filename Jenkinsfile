@@ -7,9 +7,7 @@ podTemplate(label: label, containers: [
 ],
 volumes: [
   hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
-],
-serviceAccount: 'jenkins-team1'
-) {
+]) {
   node(label) {
     stage('Checkout repo') {
         checkout scm
