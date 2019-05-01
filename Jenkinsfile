@@ -28,6 +28,8 @@ volumes: [
           usernameVariable: 'DOCKER_HUB_USER',
           passwordVariable: 'DOCKER_HUB_PASSWORD']]) {
           sh """
+	    echo ${DOCKER_HUB_USER}
+	    echo ${DOCKER_HUB_PASSWORD}
             docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
             docker build -t renansdias/dojo-test:latest .
             docker push renansdias/dojo-test:latest
