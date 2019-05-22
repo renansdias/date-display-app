@@ -38,11 +38,11 @@ volumes: [
 
     stage('Deploy') {
         container('kubectl') {
-            sh('kubectl get pods')
+            //sh('kubectl get pods')
 	    //sh('kubectl get pods -n jenkins-team1')
 	    // sh('kubectl get pods -n kube-system') It fails!
   	    // sh('kubectl delete pod kube-dns-548976df6c-4fhpl -n kube-system') It fails!
-	    //sh('kubectl run --image=renansdias/dojo-test:latest date-display-app')
+	    sh('kubectl run --image=renansdias/dojo-test:latest date-display-app')
         }
     }
   }
