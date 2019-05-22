@@ -5,7 +5,7 @@ podTemplate(label: label, containers: [
   containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.8.8', command: 'cat', ttyEnabled: true),
 ],
-serviceAccount: 'jenkins-team1',
+serviceAccount: 'jenkins-team8',
 volumes: [
   hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
 ]) {
@@ -38,11 +38,11 @@ volumes: [
 
     stage('Deploy') {
         container('kubectl') {
-            //sh('kubectl get pods')
+            sh('kubectl get pods')
 	    //sh('kubectl get pods -n jenkins-team1')
 	    // sh('kubectl get pods -n kube-system') It fails!
   	    // sh('kubectl delete pod kube-dns-548976df6c-4fhpl -n kube-system') It fails!
-	    sh('kubectl run --image=renansdias/dojo-test:latest date-display-app')
+	    //sh('kubectl run --image=renansdias/dojo-test:latest date-display-app')
         }
     }
   }
